@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp</title>
+
+
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/core.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <main>
+
+        <!-- Sidebar -->
+        <aside id="sidebar" style="max-width: 35%;">
+            <header id="sidebar-header">
+                <a href="/dashboard"><img src="https://picsum.photos/id/10/50" alt="" class="avatar"
+                        id="profile-image"></a>
+                <div class="toolbar">
+                    <a href="/status">Status</a>
+					<a href="/call">Call</a>
+                    <div class="dropdown">
+                        <img src="/images/icons/menu.svg" alt="" class="icon dropdown-button">
+                        <div class="dropdown-content">
+                            <a href="#">New group</a>
+                            <a href="#">New community</a>
+                            <a href="#">Archived</a>
+                            <a href="#">Starred messages</a>
+                            <a href="#">Select chats</a>
+                            <a href="#">Settings</a>
+                            <a href="#">Log out</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <section class="status-content">
+                <h1>Status</h1>
+                <div class="status-main">
+                    <div class="status">
+                        <div class="pro-imges">
+                            <img src="https://media.istockphoto.com/id/1338134336/photo/headshot-portrait-african-30s-man-smile-look-at-camera.webp?b=1&s=170667a&w=0&k=20&c=j-oMdWCMLx5rIx-_W33o3q3aW9CiAWEvv9XrJQ3fTMU="
+                                alt="">
+                        </div>
+                        <div>
+                            <h3>My status</h3>
+                            <h4>No Updates</h4>
+                        </div>
+                    </div>
+                    <h3>Recent updates</h3>
+                    <div class="status">
+                        <div class="pro-imges">
+                            <img src="https://media.istockphoto.com/id/1131285202/photo/portrait-of-a-handsome-man.webp?b=1&s=170667a&w=0&k=20&c=48taymhMtm9NrAPJs2ejFACh-GhbQo12kUKJfN5qmWo="
+                                alt="">
+                        </div>
+                        <div>
+                            <h3>Vikuu parihar</h3>
+                            <h4>20 minutes ago</h4>
+                        </div>
+                    </div>
+                    <div class="status">
+                        <div class="pro-imges">
+                            <img src="https://media.istockphoto.com/id/1300512215/photo/headshot-portrait-of-smiling-ethnic-businessman-in-office.webp?b=1&s=170667a&w=0&k=20&c=TXCiY7rYEvIBd6ibj2bE-VbJu0rRGy3MlHwxt2LHt9w="
+                                alt="">
+                        </div>
+                        <div>
+                            <h3>hariom dangi</h3>
+                            <h4>1 hous ago</h4>
+                        </div>
+                    </div>
+                    <div class="status">
+                        <div class="pro-imges">
+                            <img src="https://media.istockphoto.com/id/1309328823/photo/headshot-portrait-of-smiling-male-employee-in-office.webp?b=1&s=170667a&w=0&k=20&c=MRMqc79PuLmQfxJ99fTfGqHL07EDHqHLWg0Tb4rPXQc="
+                                alt="">
+                        </div>
+                        <div>
+                            <h3>Akshay Dangi</h3>
+                            <h4>12 hours ago</h4>
+                        </div>
+                    </div>
+                    <div class="status">
+                        <div class="pro-imges">
+                            <img src="https://media.istockphoto.com/id/1131285202/photo/portrait-of-a-handsome-man.webp?b=1&s=170667a&w=0&k=20&c=48taymhMtm9NrAPJs2ejFACh-GhbQo12kUKJfN5qmWo="
+                                alt="">
+                        </div>
+                        <div>
+                            <h3>Vikuu parihar</h3>
+                            <h4>20 minutes ago</h4>
+                        </div>
+                    </div>
+                    <div class="status">
+                        <div class="pro-imges">
+                            <img src="https://media.istockphoto.com/id/1300512215/photo/headshot-portrait-of-smiling-ethnic-businessman-in-office.webp?b=1&s=170667a&w=0&k=20&c=TXCiY7rYEvIBd6ibj2bE-VbJu0rRGy3MlHwxt2LHt9w="
+                                alt="">
+                        </div>
+                        <div>
+                            <h3>hariom dangi</h3>
+                            <h4>1 hous ago</h4>
+                        </div>
+                    </div>
+                    <div class="status">
+                        <div class="pro-imges">
+                            <img src="https://media.istockphoto.com/id/1309328823/photo/headshot-portrait-of-smiling-male-employee-in-office.webp?b=1&s=170667a&w=0&k=20&c=MRMqc79PuLmQfxJ99fTfGqHL07EDHqHLWg0Tb4rPXQc="
+                                alt="">
+                        </div>
+                        <div>
+                            <h3>Akshay Dangi</h3>
+                            <h4>12 hours ago</h4>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </aside>
+        <!-- Sidebar ends -->
+
+        <!-- Chat window -->
+        <section id="status-window">
+            <div style="display: none;" class="before-chat">
+                <p>Click to contact to view status</p>
+            </div>
+            <div class="display-status">
+                <div class="progress">
+                    <div class="progress-inner"></div>
+                </div>
+                <div class="close"><i class="ri-close-fill"></i></div>
+                <div class="content">
+                    <div style="display: flex; align-items: center;">
+                        <div class="user-pic">
+                            <img src="https://media.istockphoto.com/id/1386479313/photo/happy-millennial-afro-american-business-woman-posing-isolated-on-white.webp?b=1&s=170667a&w=0&k=20&c=ahypUC_KTc95VOsBkzLFZiCQ0VJwewfrSV43BOrLETM="
+                                alt="">
+                        </div>
+                        <div class="name-div">
+                            <h3>Pradum parihar</h3>
+                            <h4>yesterday, 23:04pm</h4>
+                        </div>
+                    </div>
+                    <div class="pause-div">
+                        <i class="ri-play-fill"></i>
+                        <i class="ri-volume-up-line"></i>
+                    </div>
+                </div>
+                <div class="status-dis">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde exercitationem voluptate enim
+                        😎😎❤️
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!-- Chat window ends -->
+
+    </main>
+
+    <!-- Import Scripts -->
+    <script src="/javascripts/check-connectivity.js"></script>
+    <script src="/javascripts/script.js"></script>
+</body>
+
+</html>
