@@ -8,6 +8,7 @@ const crypto = require("crypto");
 
 const userModel = require("./users");
 const chatModel = require("./chat")
+const statusModel = require("./status")
 
 const localStrategy = require("passport-local");
 const passport = require("passport");
@@ -85,15 +86,45 @@ router.post("/saveChat", async function (req, res, next) {
   res.send({ success: true, msg: 'chat inserted', data: { message: newChat.message } })
 });
 
+//for uploading Status of loggedInUser...
+router.post("/uploadStatus", upload.single("image"), async (req, res) => {
+  var loggedInuser = await userModel.findOne({ username: req.session.passport.user });
+
+  const status = new statusModel({
+    creator_id: loggedInuser._id,
+    StatusCaption: req.body.StatusCaption,
+    image: req.file.filename,
+    uplodTime: new Date()
+  })
+
+  await status.save();
+  res.redirect("/status");
+});
 
 
 
-router.get('/call', function (req, res, next) {
+
+router.get('/call', async function (req, res, next) {
+
   res.render('call')
 });
 
-router.get('/status', function (req, res, next) {
-  res.render('status')
+router.get('/status', async function (req, res, next) {
+  let loggedInuser = await userModel.findOne({ username: req.session.passport.user });
+  const allUserWithoutLoggedInUser = await userModel.find({ _id: { $nin: [loggedInuser._id] } });
+  let allUser = await userModel.find();
+
+  const statusOfLoggedInUser = await statusModel.find({ creator_id: loggedInuser._id })
+    .populate('creator_id');
+
+  const allStatusExceptLoggedInUser = await statusModel.find({ creator_id: { $ne: loggedInuser._id } })
+    .populate('creator_id');
+
+    const allStatus = await statusModel.find().populate('creator_id');
+
+    console.log(statusOfLoggedInUser);
+    console.log(allStatusExceptLoggedInUser);
+  res.render('status', { loggedInuser, allUserWithoutLoggedInUser, allUser, statusOfLoggedInUser, allStatusExceptLoggedInUser, allStatus })
 });
 
 

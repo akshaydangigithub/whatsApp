@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WhatsApp</title>
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
 
     <link rel="stylesheet" href="/stylesheets/style.css">
     <link rel="stylesheet" href="/stylesheets/core.css">
@@ -24,7 +27,7 @@
                         id="profile-image"></a>
                 <div class="toolbar">
                     <a href="/status">Status</a>
-					<a href="/call">Call</a>
+                    <a href="/call">Call</a>
                     <div class="dropdown">
                         <img src="/images/icons/menu.svg" alt="" class="icon dropdown-button">
                         <div class="dropdown-content">
@@ -40,79 +43,58 @@
                 </div>
             </header>
             <section class="status-content">
-                <h1>Status</h1>
+                <div style="display: flex; gap: 10px;">
+                    <h1>Status</h1>
+                    <h1 style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#statusModal"><i
+                            class="ri-add-line"></i></h1>
+                </div>
                 <div class="status-main">
-                    <div class="status">
-                        <div class="pro-imges">
-                            <img src="https://media.istockphoto.com/id/1338134336/photo/headshot-portrait-african-30s-man-smile-look-at-camera.webp?b=1&s=170667a&w=0&k=20&c=j-oMdWCMLx5rIx-_W33o3q3aW9CiAWEvv9XrJQ3fTMU="
-                                alt="">
+                    <% if(statusOfLoggedInUser.length>0){ %>
+                        <div class="status">
+                            <div class="pro-imges">
+                                <img src="./images/uploads/<%= statusOfLoggedInUser[0].image %>" alt="">
+                            </div>
+                            <div>
+                                <h3 class="name">My status</h3>
+                                <h4 class="status-time">10 mintus ago</h4>
+                            </div>
+                            <div style="display: none;" class="status-img">
+                                <img src="./images/uploads/<%=statusOfLoggedInUser[0].image  %>" alt="">
+                            </div>
+                            <div style="display: none;" class="status-caption">
+                                <%= statusOfLoggedInUser[0].StatusCaption %>
+                            </div>
+                            <div style="display: none;" class="status-uploadtime">
+                                <%= statusOfLoggedInUser[0].uplodTime %>
+                            </div>
                         </div>
-                        <div>
-                            <h3>My status</h3>
-                            <h4>No Updates</h4>
-                        </div>
-                    </div>
-                    <h3>Recent updates</h3>
-                    <div class="status">
-                        <div class="pro-imges">
-                            <img src="https://media.istockphoto.com/id/1131285202/photo/portrait-of-a-handsome-man.webp?b=1&s=170667a&w=0&k=20&c=48taymhMtm9NrAPJs2ejFACh-GhbQo12kUKJfN5qmWo="
-                                alt="">
-                        </div>
-                        <div>
-                            <h3>Vikuu parihar</h3>
-                            <h4>20 minutes ago</h4>
-                        </div>
-                    </div>
-                    <div class="status">
-                        <div class="pro-imges">
-                            <img src="https://media.istockphoto.com/id/1300512215/photo/headshot-portrait-of-smiling-ethnic-businessman-in-office.webp?b=1&s=170667a&w=0&k=20&c=TXCiY7rYEvIBd6ibj2bE-VbJu0rRGy3MlHwxt2LHt9w="
-                                alt="">
-                        </div>
-                        <div>
-                            <h3>hariom dangi</h3>
-                            <h4>1 hous ago</h4>
-                        </div>
-                    </div>
-                    <div class="status">
-                        <div class="pro-imges">
-                            <img src="https://media.istockphoto.com/id/1309328823/photo/headshot-portrait-of-smiling-male-employee-in-office.webp?b=1&s=170667a&w=0&k=20&c=MRMqc79PuLmQfxJ99fTfGqHL07EDHqHLWg0Tb4rPXQc="
-                                alt="">
-                        </div>
-                        <div>
-                            <h3>Akshay Dangi</h3>
-                            <h4>12 hours ago</h4>
-                        </div>
-                    </div>
-                    <div class="status">
-                        <div class="pro-imges">
-                            <img src="https://media.istockphoto.com/id/1131285202/photo/portrait-of-a-handsome-man.webp?b=1&s=170667a&w=0&k=20&c=48taymhMtm9NrAPJs2ejFACh-GhbQo12kUKJfN5qmWo="
-                                alt="">
-                        </div>
-                        <div>
-                            <h3>Vikuu parihar</h3>
-                            <h4>20 minutes ago</h4>
-                        </div>
-                    </div>
-                    <div class="status">
-                        <div class="pro-imges">
-                            <img src="https://media.istockphoto.com/id/1300512215/photo/headshot-portrait-of-smiling-ethnic-businessman-in-office.webp?b=1&s=170667a&w=0&k=20&c=TXCiY7rYEvIBd6ibj2bE-VbJu0rRGy3MlHwxt2LHt9w="
-                                alt="">
-                        </div>
-                        <div>
-                            <h3>hariom dangi</h3>
-                            <h4>1 hous ago</h4>
-                        </div>
-                    </div>
-                    <div class="status">
-                        <div class="pro-imges">
-                            <img src="https://media.istockphoto.com/id/1309328823/photo/headshot-portrait-of-smiling-male-employee-in-office.webp?b=1&s=170667a&w=0&k=20&c=MRMqc79PuLmQfxJ99fTfGqHL07EDHqHLWg0Tb4rPXQc="
-                                alt="">
-                        </div>
-                        <div>
-                            <h3>Akshay Dangi</h3>
-                            <h4>12 hours ago</h4>
-                        </div>
-                    </div>
+                        <% } %>
+
+                            <h3>Recent updates</h3>
+                            <% if(allStatusExceptLoggedInUser.length>0){ %>
+                                <% allStatusExceptLoggedInUser.forEach(function(status){ %>
+                                    <div class="status">
+                                        <div class="pro-imges">
+                                            <img src="./images/uploads/<%= status.image %>" alt="">
+                                        </div>
+                                        <div>
+                                            <h3 class="name">
+                                                <%= status.creator_id.name %>
+                                                    <%= status.creator_id.LastName %>
+                                            </h3>
+                                            <h4 class="status-time">20 minutes ago</h4>
+                                        </div>
+                                        <div style="display: none;" class="status-img">
+                                            <img src="./images/uploads/<%=status.image  %>" alt="">
+                                        </div>
+                                        <div style="display: none;" class="status-caption">
+                                            <%= status.StatusCaption %>
+                                        </div>
+                                        <div style="display: none;" class="status-uploadtime">
+                                            <%= status.uplodTime %>
+                                        </div>
+                                    </div>
+                                    <% }) } %>
                 </div>
             </section>
         </aside>
@@ -120,10 +102,11 @@
 
         <!-- Chat window -->
         <section id="status-window">
-            <div style="display: none;" class="before-chat">
+            <div style="display: flex;" class="before-chat">
                 <p>Click to contact to view status</p>
             </div>
-            <div class="display-status">
+            <div style="background-color: aliceblue; display: none;" class="display-status">
+                <img src="" alt="">
                 <div class="progress">
                     <div class="progress-inner"></div>
                 </div>
@@ -131,12 +114,15 @@
                 <div class="content">
                     <div style="display: flex; align-items: center;">
                         <div class="user-pic">
-                            <img src="https://media.istockphoto.com/id/1386479313/photo/happy-millennial-afro-american-business-woman-posing-isolated-on-white.webp?b=1&s=170667a&w=0&k=20&c=ahypUC_KTc95VOsBkzLFZiCQ0VJwewfrSV43BOrLETM="
-                                alt="">
+                            <img src="" alt="">
                         </div>
                         <div class="name-div">
-                            <h3>Pradum parihar</h3>
-                            <h4>yesterday, 23:04pm</h4>
+                            <h3>
+
+                            </h3>
+                            <h4>
+
+                            </h4>
                         </div>
                     </div>
                     <div class="pause-div">
@@ -145,19 +131,154 @@
                     </div>
                 </div>
                 <div class="status-dis">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde exercitationem voluptate enim
-                        😎😎❤️
+                    <p>
+
                     </p>
                 </div>
             </div>
+
         </section>
         <!-- Chat window ends -->
 
+
+        <!-- Modal -->
+        <div class="modal fade" id="statusModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel" style="color: black;">Upload your
+                            status</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="/uploadStatus" method="post" enctype="multipart/form-data">
+                        <div class="modal-body">
+
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label" style="color: black;">Your
+                                    Caption</label>
+                                <textarea class="form-control" placeholder="Leave your Caption here"
+                                    id="floatingTextarea" name="StatusCaption"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label" style="color: black;">Your
+                                    Status</label>
+                                <input type="file" name="image" class="form-control" id="exampleInputPassword1">
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn" style="background-color: #111B21; color: white;">Make
+                                status</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
     </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
 
     <!-- Import Scripts -->
     <script src="/javascripts/check-connectivity.js"></script>
     <script src="/javascripts/script.js"></script>
+
+    <script>
+        // show status
+
+        var allstatus = document.querySelectorAll(".status");
+        var before_chat = document.querySelector(".before-chat");
+        var display_status = document.querySelector(".display-status")
+        var close = document.querySelectorAll(".close")
+        let progressBar = document.querySelector('.progress-inner');
+        let timeoutId;
+
+        function animateProgressBar() {
+            let width = 0;
+            let totalSteps = 100;
+            let stepSize = 100 / totalSteps;
+            let intervalDuration = 50;
+
+            intervalId = setInterval(() => {
+                width += stepSize;
+                progressBar.style.width = `${width}%`;
+
+                if (width >= 100) {
+                    clearInterval(intervalId);
+                }
+            }, intervalDuration);
+        }
+        function formatTime(date) {
+            const options = {
+                hour: "numeric",
+                minute: "numeric",
+                hour12: true,
+            };
+            return date.toLocaleTimeString(undefined, options);
+        }
+
+
+        allstatus.forEach(function (status) {
+            status.addEventListener("click", function () {
+                console.log(status);
+                before_chat.style.display = "none"
+                display_status.style.display = "initial";
+                progressBar.style.width = "0%";
+                clearTimeout(timeoutId);
+                intervalId = null;
+                timeoutId = setTimeout(() => {
+                    display_status.style.display = "none";
+                    before_chat.style.display = "flex";
+                }, 5000);
+                animateProgressBar();
+
+
+
+                // get value from clicked story user
+                const profilePhoto = status.querySelector(".pro-imges img").getAttribute("src");
+                const name = status.querySelector(".name").textContent
+                const statusImg = status.querySelector(".status-img img").getAttribute("src");
+                const statusCaption = status.querySelector(".status-caption").textContent
+                const statusUploadTimeStr = status.querySelector(".status-uploadtime").textContent;
+                const statusUploadTime = new Date(statusUploadTimeStr);
+                const formattedStatusUploadTime = formatTime(statusUploadTime);
+
+                console.log(profilePhoto, name, statusImg, statusCaption, statusUploadTime);
+
+                // implement it in the storypage
+                const profilePhotoNew = document.querySelector(".user-pic img")
+                const nameNew = document.querySelector(".name-div h3");
+                const statusImgNew = document.querySelector(".display-status img");
+                const statusCaptionNew = document.querySelector(".status-dis p")
+                const statusUploadTimeNew = document.querySelector(".name-div h4")
+
+                profilePhotoNew.src = profilePhoto;
+                nameNew.textContent = name;
+                statusImgNew.src = statusImg;
+                statusCaptionNew.textContent = statusCaption;
+                statusUploadTimeNew.textContent = formattedStatusUploadTime;
+            })
+        })
+
+        close.forEach(function (close) {
+            close.addEventListener("click", function () {
+                clearTimeout(timeoutId);
+                clearInterval(intervalId);
+                progressBar.style.width = "0%";
+                before_chat.style.display = "flex"
+                display_status.style.display = "none"
+            })
+        })
+
+    </script>
 </body>
 
 </html>

@@ -1,4 +1,3 @@
-
 // for opening the profile ..... 
 
 var profileImage = document.querySelector("#profile-image");
@@ -23,3 +22,5 @@ document.querySelector(".change-icon").addEventListener("click", function () {
 document.querySelector("#Profile-photo-input").addEventListener("change", function () {
     document.querySelector("form[action='/uploadProfilePhoto']").submit();
 });
+
+
